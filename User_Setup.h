@@ -16,8 +16,8 @@
 // ##################################################################################
 
 // Only define one driver, the other ones must be commented out
-#define ILI9341_DRIVER
-//#define ST7735_DRIVER      // Define additional parameters below for this display
+//#define ILI9341_DRIVER
+#define ST7735_DRIVER      // Define additional parameters below for this display
 //#define ILI9163_DRIVER     // Define additional parameters below for this display
 //#define S6D02A1_DRIVER
 //#define RPI_ILI9486_DRIVER // 20MHz maximum SPI
@@ -53,6 +53,8 @@
 // #define TFT_HEIGHT 160
 // #define TFT_HEIGHT 128
 // #define TFT_HEIGHT 240 // ST7789 240 x 240
+#define TFT_WIDTH  128
+#define TFT_HEIGHT 128
 // #define TFT_HEIGHT 320 // ST7789 240 x 320
 
 // For ST7735 ONLY, define the type of display, originally this was based on the
@@ -64,7 +66,7 @@
 
 // #define ST7735_INITB
 // #define ST7735_GREENTAB
-// #define ST7735_GREENTAB2
+#define ST7735_GREENTAB2
 // #define ST7735_GREENTAB3
 // #define ST7735_GREENTAB128    // For 128 x 128 display
 // #define ST7735_GREENTAB160x80 // For 160 x 80 display (BGR, inverted, 26 offset)
@@ -125,9 +127,9 @@
 // ###### EDIT THE PIN NUMBERS IN THE LINES FOLLOWING TO SUIT YOUR ESP8266 SETUP ######
 
 // For NodeMCU - use pin numbers in the form PIN_Dx where Dx is the NodeMCU pin designation
-#define TFT_CS   PIN_D8  // Chip select control pin D8
-#define TFT_DC   PIN_D3  // Data Command control pin
-#define TFT_RST  PIN_D4  // Reset pin (could connect to NodeMCU RST, see next line)
+//#define TFT_CS   PIN_D8  // Chip select control pin D8
+//#define TFT_DC   PIN_D3  // Data Command control pin
+//#define TFT_RST  PIN_D4  // Reset pin (could connect to NodeMCU RST, see next line)
 //#define TFT_RST  -1    // Set TFT_RST to -1 if the display RESET is connected to NodeMCU RST or 3.3V
 
 //#define TFT_BL PIN_D1  // LED back-light (only for ST7789 with backlight control pin)
@@ -194,9 +196,10 @@
 //#define ESP32_PARALLEL
 
 // The ESP32 and TFT the pins used for testing are:
-//#define TFT_CS   33  // Chip select control pin (library pulls permanently low
-//#define TFT_DC   15  // Data Command control pin - must use a pin in the range 0-31
-//#define TFT_RST  32  // Reset pin, toggles on startup
+// For agnes panel:
+#define TFT_CS   12  // Chip select control pin (library pulls permanently low
+#define TFT_DC   32  // Data Command control pin - use a pin in the range 0-31
+#define TFT_RST  15  // Reset pin, toggles on startup
 
 //#define TFT_WR    4  // Write strobe control pin - must use a pin in the range 0-31
 //#define TFT_RD    2  // Read strobe control pin
@@ -229,11 +232,11 @@
 #define LOAD_FONT7  // Font 7. 7 segment 48 pixel font, needs ~2438 bytes in FLASH, only characters 1234567890:-.
 #define LOAD_FONT8  // Font 8. Large 75 pixel font needs ~3256 bytes in FLASH, only characters 1234567890:-.
 //#define LOAD_FONT8N // Font 8. Alternative to Font 8 above, slightly narrower, so 3 digits fit a 160 pixel TFT
-#define LOAD_GFXFF  // FreeFonts. Include access to the 48 Adafruit_GFX free fonts FF1 to FF48 and custom fonts
+// #define LOAD_GFXFF  // FreeFonts. Include access to the 48 Adafruit_GFX free fonts FF1 to FF48 and custom fonts
 
 // Comment out the #define below to stop the SPIFFS filing system and smooth font code being loaded
 // this will save ~20kbytes of FLASH
-#define SMOOTH_FONT
+// #define SMOOTH_FONT
 
 
 // ##################################################################################
